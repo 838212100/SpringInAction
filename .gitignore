@@ -1,0 +1,15 @@
+# Java compile file #
+*.class
+
+# Package Files #
+*.war
+*.ear
+
+# classpath #
+*.classpath
+
+# Mmaven file #
+/target/
+
+# setting #
+*.setting
