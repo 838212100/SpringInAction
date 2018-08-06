@@ -15,6 +15,7 @@ public class BraveKnight implements Knight{
 		minstrel.singBeforeQuest();
 		quest.embark();
 		minstrel.singAfterQuest();
+		
 	}
 
 }
