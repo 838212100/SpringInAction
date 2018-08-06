@@ -6,7 +6,7 @@ public class BraveKnight implements Knight{
 	
 	private Minstrel minstrel;
 	
-	//进行git测试
+	//进行git测试 
 	public BraveKnight(Quest quest ,Minstrel minstrel) {
 		this.quest = quest;
 		this.minstrel = minstrel;
