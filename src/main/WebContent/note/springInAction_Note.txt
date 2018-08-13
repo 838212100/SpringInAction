@@ -1,0 +1,3 @@
+@Component					该注解表明该类会作为组建类
+@ComponentScan				扫包,默认扫描当前包
+@ContextConfiguratio		告诉需要在哪个类中加载配置
