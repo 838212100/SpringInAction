@@ -1,3 +1,13 @@
 @Component					该注解表明该类会作为组建类
+	spring应用上下文中所有的bean都会给点一个ID,将类名的第一个字母变为小写,如果想为这个bean设置不同的ID作为你所期望的ID传递给@Component注解	可做如下修改：
+		@Component("myName")
+		当然还有另一种bean命名方式,这种凡是不适用@Component注解,而是使用Java依赖注入规范中所体统的@Name注解来为bean设置ID：
+		@Named("myName")
+		二者之间有一些细微的差异,但是大多数场景中,它们是可以替换的。
+							
 @ComponentScan				扫包,默认扫描当前包
+	想要扫描不同包时,在value属性中指明包的名称。
+	如果想更加清晰地表名你所设置的是基础包,可以通过basePackages属性进行设置：
+	@ComponentScan(basePackages="soundsystem")
+	
 @ContextConfiguratio		告诉需要在哪个类中加载配置
