@@ -48,6 +48,7 @@
 		<scope>test</scope>
     </dependency>
     
+    <!-- httpClient -->
     <dependency>
 		<groupId>org.apache.httpcomponents</groupId>
 	    <artifactId>httpclient</artifactId>
@@ -58,7 +59,21 @@
 	    <artifactId>httpcore</artifactId>
 	    <version>4.4.1</version>
 	</dependency>
-    
+	
+	<!-- spring jdbc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>4.3.18.RELEASE</version>
+	</dependency>
+	
+    <!-- 测试类 log -->
+    <dependency>
+	    <groupId>com.github.stefanbirkner</groupId>
+	    <artifactId>system-rules</artifactId>
+	    <version>1.16.0</version>
+	    <scope>test</scope>
+	</dependency>
     
   </dependencies>
 </project>
