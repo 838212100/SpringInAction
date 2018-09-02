@@ -3,6 +3,7 @@ package com.springinaction3_1;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jndi.JndiObjectFactoryBean;
@@ -24,6 +25,12 @@ public class ProdectionProfileConfig {
 		jndiObjectFactoryBean.setResourceRef(true);
 		jndiObjectFactoryBean.setProxyInterface(javax.sql.DataSource.class);
 		return (DataSource) jndiObjectFactoryBean.getObject();
+	}
+	
+	@Bean
+	@Conditional(MacgicExistsCondition.class)
+	public MagicBean magicBean() {
+		return new MagicBean();
 	}
 
 }
