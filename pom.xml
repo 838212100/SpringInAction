@@ -74,6 +74,13 @@
 	    <version>1.16.0</version>
 	    <scope>test</scope>
 	</dependency>
+	
+	<!-- RabbitMQ -->
+	<dependency>
+	    <groupId>com.rabbitmq</groupId>
+	    <artifactId>amqp-client</artifactId>
+	    <version>4.2.0</version>
+	</dependency>
     
   </dependencies>
 </project>
