@@ -1,0 +1,16 @@
+通知(Advice)
+Spring切面可以应用5种类型的通知：
+1)前置通知(Before)
+2)后置通知(After)
+3)返回通知(After-returning)
+4)异常通知(After-throwing)
+5)环绕通知(Around)
+
+spring AOP支持方法连接点，但不支持构造器连接点
+
+execution(* com.springinaction4_1.Performance.perform(..))
+1)exection在方法执行时触发
+2)*返回任意类型
+3)com.springinaction4_1.Performance方法所属的类
+4)perform方法
+5)(..)任意参数	or	(int)接受int类型的参数	注：类型一定对应上，int对应int，Integer对应Integer

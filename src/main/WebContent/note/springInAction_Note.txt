@@ -25,3 +25,5 @@
 	可用该注解替代@Autowired注解,有细微差别,Spring同时支持
 	
 @ContextConfiguration(告诉需要在哪个类中加载配置)
+
+@EnableAspectJAutoProxy启用AspectJ自动代理
