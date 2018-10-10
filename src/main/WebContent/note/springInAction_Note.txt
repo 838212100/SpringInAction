@@ -21,9 +21,25 @@
 	如果没有匹配的bean,在应用上下文创建的时候,Spring会抛出一个异常.为了避免异常的出现,可以将@Autowired的required属性设置为false,该属性为false时,
 	Spring会尝试执行自动装配,但是如果没有的bean的话,Spring会让这个bean处于为匹配的状态.如果没有null检查的话,这个为装配的属性可能会出现NullPointerException.
 	如果有多个bean满足依赖关系,Spring会抛出一个异常,表明没有明确指定要选择哪个bean进行装配.
-	@Inject
+	@Inject(属于javax.inject包)
 	可用该注解替代@Autowired注解,有细微差别,Spring同时支持
 	
 @ContextConfiguration(告诉需要在哪个类中加载配置)
 
 @EnableAspectJAutoProxy启用AspectJ自动代理
+	
+@Controller(属于spring-context包)
+
+pom中引入spring-web时
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>4.3.18.RELEASE</version>
+</dependency>
+增加了6个相关的jar,分别是:
+1)spring-aop
+2)spring-beans
+3)spring-context
+4)spring-core
+5)spring-experssion
+6)spring-web
