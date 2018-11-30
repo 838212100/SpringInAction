@@ -1,0 +1,21 @@
+thymeleaf模板标签解释
+1)th:if			判断条件				<a th:if="${userId == collect.userId}" >
+2)th:unless		和th:if判断相反		<a th:href="@{/login}" th:unless=${session.user != null}>Login</a>
+3)th:each		属性赋值				<tr th:each="user,userStat:${users}">
+4)th:text		可对表达式或变量求值，并将结果显示在其被包含的 html 标签体内替换原有html文本。文本链接: 用 "+" 符号，若是变量表达式也可以用“|”符号
+5)th:value    	属性赋值    　　　　	<input th:value="${user.name}" />
+6)th:onclick    点击事件				<th:onclick="'getCollect()'">
+7)th:selected	selected选择框选中	<th:selected="(${xxx.id} == ${configObj.dd})">
+8)th:id    　　	替换id    　　　　  	<input th:id="'xxx' + ${collect.id}"/>
+9)
+10)
+11)
+12)
+13)
+14)
+15)
+16)
+17)
+18)
+19)
+20)

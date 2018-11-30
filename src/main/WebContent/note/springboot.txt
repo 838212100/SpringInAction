@@ -1,0 +1,30 @@
+1、启用自动装配
+@EnableAutoConfiguration
+
+2、开启组建扫描和自动配置
+@SpringBootApplication
+	实际是将三个有用的注解组合在一起
+	1)@Configuration	标明该类使用Spring基于Java的配置
+	2)@ComponentScan	启用组件扫描
+	3)@EnableAutoConfiguration	也可称为@Abracadabra 就是这一行配置开启了Spring Boot自动配置的魔力,不用在写成片的配置了
+
+3、较新版的Spring Boot取消了@SpringApplicationConfiguration这个注解，用@SpringBootTest就可以了
+	例：@SpringBootTest(classes = ReadingListApplication.class)
+		@SpringBootTest注解从ReadingListApplication配置类里加载Spring应用程序上下文
+
+4、@Id： 
+@Id 标注用于声明一个实体类的属性映射为数据库的主键列。该属性通常置于属性声明语句之前，可与声明语句同行，也可写在单独行上。 
+@Id标注也可置于属性的getter方法之前。
+
+5、@GeneratedValue： 
+@GeneratedValue 用于标注主键的生成策略，通过strategy 属性指定。
+默认情况下，JPA 自动选择一个最适合底层数据库的主键生成策略：SqlServer对应identity，MySQL 对应 auto increment。 
+在javax.persistence.GenerationType中定义了以下几种可供选择的策略： 
+	–IDENTITY：采用数据库ID自增长的方式来自增主键字段，Oracle 不支持这种方式； 
+	–AUTO： JPA自动选择合适的策略，是默认选项； 
+	–SEQUENCE：通过序列产生主键，通过@SequenceGenerator 注解指定序列名，MySql不支持这种方式 
+	–TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用该策略可以使应用更易于数据库移植。
+
+6、@PathVariable("reader") String reader
+	获取请求参数中的值 并赋值给对应的变量
+	
