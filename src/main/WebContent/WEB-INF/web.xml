@@ -10,5 +10,23 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <context-param>
+  	<param-name>sex</param-name>
+  	<param-value>22</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>myServlet</servlet-name>
+  	<servlet-class>my.servlet.MyServlet</servlet-class>
+  	<init-param>
+  		<param-name>name</param-name>
+  		<param-value>Renetkon</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>myServlet</servlet-name>
+  	<url-pattern>/meServlet</url-pattern>
+  </servlet-mapping>
   
 </web-app>
