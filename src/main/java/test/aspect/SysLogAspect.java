@@ -1,6 +1,5 @@
 package test.aspect;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SysLogAspect {
 	
-	public static Map<String, String> process(Class clazz) {
+	private static Map<String, String> process(Class<?> clazz) {
 		Map<String, String> map = new HashMap<String, String>();
 		//找方法
 		String modelName=null;
@@ -30,29 +29,21 @@ public class SysLogAspect {
 //				map.put("modelName", value)
 				modelName = annotation.modelName();
 				System.out.println(modelName);
-				String user = annotation.user();
+				//String user = annotation.user();
 			}
 		}
 		return map;
 	}
 	
 	@Pointcut("@annotation(test.aspect.OperationLogger)")
-	public void controllerAspect() {
-		System.out.println("我是一个切入点");
-	}
+	public void controllerAspect() {}
 	
 	@Before("controllerAspect()")
 	public void doBefore(JoinPoint joinPoint) {
-		// 获取目标方法的签名
 
-		String signature = joinPoint.getSignature().toString();
-
-		//根据的带的签名去截取方法名
-		//在目标方法的签名当中以最后一个点加1开始，以包裹参数的第一个尖括号结尾截取方法名
-
-		String methodName =signature.substring(signature.lastIndexOf(".")+1,signature.indexOf("("));
-
+		String methodName = joinPoint.getSignature().getDeclaringTypeName();
 		String classType = joinPoint.getTarget().getClass().getName();
+		System.out.println(classType);
 		Class<?> clazz;
 		try {
 			clazz = Class.forName(classType);
@@ -77,15 +68,10 @@ public class SysLogAspect {
 		
 		System.out.println("obj[] length = " + obj.length);
 		if(obj.length > 0) {
-			
 			System.out.println(obj[1].getClass().getName());
 			System.out.println("str is : "+str);
 			System.out.println("我是一个前置通知");
 		}
-		/*for (int i = 0; i < joinPoint.getArgs().length; i++) {
-			System.out.println(joinPoint.getArgs()[i]);
-		}
-		System.out.println(joinPoint.getSignature().getName());*/
 		
 		System.out.println("--------------------------------");
 		
@@ -105,44 +91,14 @@ public class SysLogAspect {
 	
 	
 	@Pointcut("execution(* test.aspect.TestController.getName(..))")
-	public void getName() {
-		System.out.println("我是另一个切入点");
-	}
+	public void getName() {}
 	
 	@Before("getName()")
 	public void getName(JoinPoint joinPoint) {
+		
 		System.out.println("------------------------------------");
 		System.out.println("我是getName的切入点");
-		/*String str = joinPoint.getSignature().toLongString();
-		System.out.println(joinPoint.getTarget().toString());
-		Object[] obj = joinPoint.getArgs();
 		
-		System.out.println("obj[] length = " + obj.length);
-		if(obj.length > 0) {
-			
-			System.out.println(obj[1].getClass().getName());
-			System.out.println("str is : "+str);
-			System.out.println("我是一个前置通知");
-		}
-		for (int i = 0; i < joinPoint.getArgs().length; i++) {
-			System.out.println(joinPoint.getArgs()[i]);
-		}
-		System.out.println(joinPoint.getSignature().getName());
-		
-		System.out.println("--------------------------------");
-		
-		System.out.println("目标方法名为:" + joinPoint.getSignature().getName());
-        System.out.println("目标方法所属类的简单类名:" +        joinPoint.getSignature().getDeclaringType().getSimpleName());
-        System.out.println("目标方法所属类的类名:" + joinPoint.getSignature().getDeclaringTypeName());
-        System.out.println("目标方法声明类型:" + Modifier.toString(joinPoint.getSignature().getModifiers()));
-        //获取传入目标方法的参数
-        Object[] args = joinPoint.getArgs();
-        for (int i = 0; i < args.length; i++) {
-            System.out.println("第" + (i+1) + "个参数为:" + args[i]);
-        }
-        System.out.println("被代理的对象:" + joinPoint.getTarget());
-        System.out.println("代理对象自己:" + joinPoint.getThis());*/
-
 	}
 
 }
