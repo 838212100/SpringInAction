@@ -12,7 +12,7 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     
-    <bean id="knight" class="com.springinaction.knights.BraveKnight">
+   <!--  <bean id="knight" class="com.springinaction.knights.BraveKnight">
     	<constructor-arg ref="quest"/>
     </bean>
     
@@ -32,11 +32,12 @@
     		
     		<aop:after pointcut-ref="embark" method="singAfterQuest"/>
     	</aop:aspect>
-    </aop:config>
+    </aop:config> -->
     
     <context:component-scan base-package="test.aspect" />
     
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     
+	<bean id="testController" class="test.aspect.TestController"></bean>
 
 </beans>
