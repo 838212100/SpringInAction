@@ -18,6 +18,7 @@ public class Client {
 		
 		testController.getList("name", 1, new User());
 		testController.getName("name", 1, new User());
+		testController.getValues("name", 1, new User());
 		
 	}
 	public static HttpServletRequest getHttpServletRequest(){  
